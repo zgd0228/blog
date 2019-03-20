@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/boot/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/bs/base_style.css">
+    <link rel="stylesheet" href="/static/bs/article_content_style.css">
+    <script src="/static/jquery/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<div class="top">
+    <div class="title">
+        <p><a href="/index" class="blog_title">博客园</a>
+            <a href="/manage">管理</a></p>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            {% load my_tags %}
+            {% get_classification user %}
+        </div>
+        <div class="col-md-9">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

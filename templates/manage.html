@@ -1,0 +1,26 @@
+{% extends 'backend/base.html' %}
+{% block article %}
+    <div class="table_set">
+        <table class="table table-bordered">
+            <tr class="info">
+                <td class="table-1">标 题</td>
+                <td>评 论 数</td>
+                <td>点 赞 数</td>
+                <td>操 作</td>
+                <td>操 作</td>
+            </tr>
+            {% for foo in article_obj %}
+                <tr>
+                    <td>{{ foo.title }}</td>
+                    <td>{{ foo.comment_count }}</td>
+                    <td>{{ foo.up_count }}</td>
+                    <td><a href="manage/{{ foo.pk }}/change" class="edit">编辑</a></td>
+                    <td><a href="manage/{{ foo.pk }}/delete" class="delt">删除</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+
+{% endblock %}

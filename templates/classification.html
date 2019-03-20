@@ -1,0 +1,45 @@
+<div>
+    <div class="panel panel-success">
+        <div class="panel-heading">我的标签</div>
+        <div class="panel-body">
+            {% for tag in tag_list %}
+                <p>
+                    <span>
+                        <a href="/{{ user }}/tag/{{ tag.title }}">
+                            {{ tag.title }}
+                        </a>
+                    </span>&nbsp;
+                    <span>({{ tag.c }})</span>
+                </p>
+            {% endfor %}
+
+        </div>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">随笔分类</div>
+        <div class="panel-body">
+            {% for cate in cate_list %}
+                <p>
+                    <span>
+                        <a href="/{{ user }}/category/{{ cate.title }}">{{ cate.title }}</a>
+                    </span>&nbsp;
+                    <span>({{ cate.c }})</span></p>
+            {% endfor %}
+
+        </div>
+    </div>
+    <div class="panel panel-warning">
+        <div class="panel-heading">随笔归档</div>
+        <div class="panel-body">
+            {% for date in date_list %}
+                <p>
+                    <span>
+                        <a href="/{{ user }}/archive/{{ date.month|date:'Y-m' }}">{{ date.month|date:'Y-m' }}</a>
+                    </span>&nbsp;
+                    <span>({{ date.c }})</span>
+                </p>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>

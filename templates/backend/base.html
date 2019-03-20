@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/boot/css/bootstrap.css">
+    {#    <link rel="stylesheet" href="/static/bs/base_style.css">#}
+    {#    <link rel="stylesheet" href="/static/bs/article_content_style.css">#}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-family: Verdana,Arial,Helvetica,sans-serif;
+        }
+
+        .top {
+            margin: 10px;
+            overflow: hidden;
+        }
+
+        .top a {
+            margin-left: 3px;
+            font-size: 12px;
+        }
+        .top-right a{
+            color: #515151;
+        }
+        .top-left a{
+            color: #002c99;
+        }
+
+        .header a {
+            margin-left: 5px;
+        }
+
+        .header {
+            float: right;
+            margin: 10px;
+        }
+
+        .head {
+            background-color: #bbb;
+            padding: 8px 5px;
+        }
+
+        .contain {
+            overflow: hidden;
+            background-color: white;
+            border: 1px solid #666;
+        }
+
+        .container_main {
+            overflow: hidden;
+        }
+
+        .title {
+            height: 60px;
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        .main_title {
+            font-size: 30px;
+            position: absolute;
+            margin-left: 100px;
+            top: 0;
+            
+        }
+
+        .username {
+            font-size: 27px;
+            position: absolute;
+            margin-right: 100px;
+            right: 10px;
+            bottom: 0;
+            font-family: Verdana,Arial,Helvetica,sans-serif;
+        }
+
+        .main {
+            margin-left: 20px;
+        }
+
+        .choose ul li {
+            list-style: none;
+            display: inline;
+            background-color: #66afe9;
+            padding: 5px 12px;
+        }
+
+        .main-middle ul li {
+            margin: 5px 10px;
+        }
+
+        .main-left-1 {
+            background-color: #2b669a;
+            color: white;
+            text-align: center;
+        }
+
+        .main-left-2 {
+            background-color: #5bc0de;
+            text-align: center;
+        }
+
+        .col-md-10 {
+            border-left: 1px solid black;
+        }
+
+        .table-1 {
+            width: 800px;
+        }
+
+        .table tr td {
+            text-align: center;
+        }
+
+        .add_title {
+            text-align: center;
+            background-color: #c4e3f3;
+            margin: 20px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        label {
+            margin-left: 10px;
+        }
+
+        .add {
+            margin: 40px;
+        }
+        .table_set{
+            height: 500px;
+            margin-right: 15px;
+        }
+
+    </style>
+    <script src="/static/jquery/jquery-3.2.1.min.js"></script>
+    <script src="/static/boot/js/bootstrap.min.js"></script>
+        <script charset="utf-8" src="/static/kindeditor-4.1.11-zh-CN/kindeditor/kindeditor-all.js"></script>
+    <script charset="utf-8" src="/static/kindeditor-4.1.11-zh-CN/kindeditor/lang/zh-CN.js"></script>
+    <script>
+            KindEditor.ready(function(K) {
+                    window.editor = K.create('#comment_content',{
+                        resizeType:0,
+{#                        , 页面不能拖动#}
+                        uploadJson:'/upload/',
+                        extraFileUploadParams:{
+                            csrfmiddlewaretoken:$("[name='csrfmiddlewaretoken']").val()
+                        },
+                        filePostName:'upload_img',
+                        height:500,
+                    });
+
+{#                参数设置#}
+            });
+    </script>
+
+</head>
+<body>
+<div class="content">
+    <div class="top">
+        <div class="top-right pull-left">
+            <span>« </span>
+            <a href="/index/">网站首页</a>
+            <a href="#">园子</a>
+            <a href="#">新闻</a>
+            <a href="#">博问</a>
+            <a href="#">闪存</a>
+            <a href="#">收藏</a>
+            <a href="#">搜索</a>
+        </div>
+        <div class="top-left pull-right">
+            <a href="{{ request.user }}">{{ request.user }}</a>
+            ·
+            <a href="#">短消息</a>
+            ·
+            <a href="#">设置</a>
+            ·
+            <a href="/logout/">退出</a>
+        </div>
+    </div>
+    <div class="head">
+        <div class="contain">
+            <div class="header">
+                <a href="">修改密码</a>
+                |
+                <a href="">备份</a>
+                |
+                <a href="">模板</a>
+            </div>
+            <div class="title">
+                <div class="main_title">
+                    <a href="/index/">
+                        <img src="/static/img/adminlogo.gif" alt="">
+                    </a>
+                </div>
+                <div class="username">
+                    <a href="/{{ request.user }}/">{{ request.user }}</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="clear"></div>
+                    <div class="main-left-1">操 作</div>
+                    <div class="main-middle">
+                        <ul>
+                            <li><a href="/manage/add">添加新随笔</a></li>
+                            <li><a href="">草稿箱</a></li>
+                            <li><a href="">设置默认编辑器</a></li>
+                            <li><a href="">博客客户端</a></li>
+                            <li><a href="">博客签名</a></li>
+                            <li><a href="">博客备份</a></li>
+                            <li><a href="">博客搬家</a></li>
+                        </ul>
+                    </div>
+                    <div class="main-left-2">分 类</div>
+                </div>
+                <div class="col-md-10">
+                    <div class="choose">
+                        <ul>
+                            <li>随笔</li>
+                            <li>文章</li>
+                            <li>日记</li>
+                            <li>评论</li>
+                            <li>链接</li>
+                            <li>收藏</li>
+                            <li>相册</li>
+                            <li>文件</li>
+                            <li>设置</li>
+                            <li>选项</li>
+                        </ul>
+                    </div>
+                    <div class="choose_result">
+
+                        {% block article %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'backend/base.html' %}
+{% block article %}
+    <div class="add_title"> 添 加 文 章</div>
+    <div class="add">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label> 文 章 标 题 </label>
+                <input type="text" class="form-control" name="title" id="title" value="{{ article_obj.title }}">
+            </div>
+
+            <div class="form-group">
+                <label> 文 章 内 容</label>
+                <textarea name="content" id="comment_content" cols="60" rows="10" class="form-control">
+                    {{ article_obj.content }}
+                </textarea>
+            </div>
+
+            <input type="submit" class="btn btn-info " >
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+ * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .blog_title{
+            color: white;
+            font-size: 30px;
+            position: absolute;
+            left: 40px;
+        }
+
+        .title{
+            position: relative;
+        }
+
+        .top {
+            width: 100%;
+            height: 60px;
+            background-color: #369;
+        }
+
+        .title p {
+            line-height: 60px;
+            color: white;
+            overflow: hidden;
+        }
+
+        .title p span {
+            font-size: 24px;
+            margin-left: 30px;
+        }
+        .container{
+            margin-top: 15px;
+        }
+        .title p a {
+            float: right;
+            margin-right: 15px;
+            color: white;
+        }
+
+        .article-other {
+            color: darkgray;
+            margin-top: 15px;
+        }
+
+        .article-item {
+            overflow: hidden;
+        }
